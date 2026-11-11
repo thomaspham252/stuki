@@ -3,14 +3,22 @@ export interface ProductItem {
   name: string;
   category: string;
   price: number;
+  maxPrice?: number;
   originalPrice?: number;
   discountPercent?: number;
   image: string;
   hoverImage: string;
   badge?: "SALE" | "HÀNG MỚI" | "HOT";
-  colors: { name: string; hex: string }[];
+  promoBanner?: string | null;
+  colors: { name: string; hex: string; image?: string }[];
   sizes: string[];
+  images?: string[];
 }
+
+// Đường dẫn ảnh banner khuyến mãi mặc định ở đáy ảnh của ProductCard.
+// Khi hết đợt 11/11 (ví dụ sang Black Friday, Giáng Sinh, Tết...), chủ shop chỉ cần đổi file ảnh này
+// hoặc thay đổi đường dẫn ở đây là toàn bộ thẻ sản phẩm trên website sẽ tự động cập nhật!
+export const DEFAULT_PROMO_BANNER = "/images/card-promo-banner.svg";
 
 export const FLASH_SALE_PRODUCTS: ProductItem[] = [
   {
@@ -20,10 +28,14 @@ export const FLASH_SALE_PRODUCTS: ProductItem[] = [
     price: 395000,
     originalPrice: 495000,
     discountPercent: 20,
-    image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "SALE",
-    colors: [{ name: "Đen", hex: "#111111" }, { name: "Xám", hex: "#707070" }, { name: "Be", hex: "#c8bca9" }],
+    colors: [
+      { name: "Đen", hex: "#111111", image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Xám", hex: "#707070", image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Be", hex: "#c8bca9", image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["29", "30", "31", "32"],
   },
   {
@@ -33,10 +45,13 @@ export const FLASH_SALE_PRODUCTS: ProductItem[] = [
     price: 295000,
     originalPrice: 395000,
     discountPercent: 25,
-    image: "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1560243563-062bfc001d68?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "HÀNG MỚI",
-    colors: [{ name: "Đen", hex: "#111111" }, { name: "Xanh navy", hex: "#182c4d" }],
+    colors: [
+      { name: "Đen", hex: "#111111", image: "https://images.unsplash.com/photo-1560243563-062bfc001d68?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Xanh navy", hex: "#182c4d", image: "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["M", "L", "XL"],
   },
   {
@@ -46,10 +61,13 @@ export const FLASH_SALE_PRODUCTS: ProductItem[] = [
     price: 595000,
     originalPrice: 750000,
     discountPercent: 21,
-    image: "https://images.unsplash.com/photo-1548883354-7622d03aca27?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1548883354-7622d03aca27?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "SALE",
-    colors: [{ name: "Trắng be", hex: "#e5ded3" }, { name: "Đen", hex: "#111111" }],
+    colors: [
+      { name: "Trắng be", hex: "#e5ded3", image: "https://images.unsplash.com/photo-1548883354-7622d03aca27?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Đen", hex: "#111111", image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["S", "M", "L", "XL"],
   },
   {
@@ -59,10 +77,13 @@ export const FLASH_SALE_PRODUCTS: ProductItem[] = [
     price: 265000,
     originalPrice: 350000,
     discountPercent: 24,
-    image: "https://images.unsplash.com/photo-1562157873-818bc0726f68?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1562157873-818bc0726f68?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "SALE",
-    colors: [{ name: "Xám chì", hex: "#4b4f56" }, { name: "Xanh rêu", hex: "#3b4d3c" }],
+    colors: [
+      { name: "Xám chì", hex: "#4b4f56", image: "https://images.unsplash.com/photo-1562157873-818bc0726f68?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Xanh rêu", hex: "#3b4d3c", image: "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["M", "L", "XL"],
   },
   {
@@ -72,10 +93,12 @@ export const FLASH_SALE_PRODUCTS: ProductItem[] = [
     price: 345000,
     originalPrice: 450000,
     discountPercent: 23,
-    image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "HÀNG MỚI",
-    colors: [{ name: "Họa tiết đen trắng", hex: "#2b2b2b" }],
+    colors: [
+      { name: "Họa tiết đen trắng", hex: "#2b2b2b", image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["M", "L", "XL"],
   },
   {
@@ -85,11 +108,79 @@ export const FLASH_SALE_PRODUCTS: ProductItem[] = [
     price: 245000,
     originalPrice: 320000,
     discountPercent: 23,
-    image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "SALE",
-    colors: [{ name: "Trắng", hex: "#ffffff" }, { name: "Đen", hex: "#111111" }, { name: "Olive", hex: "#556b2f" }],
+    colors: [
+      { name: "Đen", hex: "#111111", image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Trắng", hex: "#ffffff", image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Olive", hex: "#556b2f", image: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["S", "M", "L", "XL"],
+  },
+  {
+    id: "fs-7",
+    name: "Áo Polo Pique Cotton Thoáng Khí Form Regular",
+    category: "Áo polo",
+    price: 285000,
+    originalPrice: 380000,
+    discountPercent: 25,
+    image: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?q=80&w=600&h=800&auto=format&fit=crop",
+    badge: "SALE",
+    colors: [
+      { name: "Xanh navy", hex: "#182c4d", image: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Trắng", hex: "#ffffff", image: "https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
+    sizes: ["M", "L", "XL"],
+  },
+  {
+    id: "fs-8",
+    name: "Quần Jeans Baggy Trơn Màu Xanh Retro",
+    category: "Jeans",
+    price: 485000,
+    originalPrice: 620000,
+    discountPercent: 22,
+    image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=600&h=800&auto=format&fit=crop",
+    badge: "HÀNG MỚI",
+    colors: [
+      { name: "Xanh retro", hex: "#415f8a", image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Đen wash", hex: "#2b2b2b", image: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
+    sizes: ["29", "30", "31", "32"],
+  },
+  {
+    id: "fs-9",
+    name: "Áo Khoác Bomber Kaki 2 Lớp Chống Gió",
+    category: "Áo khoác",
+    price: 545000,
+    originalPrice: 720000,
+    discountPercent: 24,
+    image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1548883354-7622d03aca27?q=80&w=600&h=800&auto=format&fit=crop",
+    badge: "SALE",
+    colors: [
+      { name: "Xanh rêu", hex: "#3b4d3c", image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Đen", hex: "#111111", image: "https://images.unsplash.com/photo-1548883354-7622d03aca27?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
+    sizes: ["M", "L", "XL"],
+  },
+  {
+    id: "fs-10",
+    name: "Quần Tây Ống Đứng Lưng Thun Co Giãn",
+    category: "Quần tây",
+    price: 425000,
+    originalPrice: 550000,
+    discountPercent: 23,
+    image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=600&h=800&auto=format&fit=crop",
+    badge: "SALE",
+    colors: [
+      { name: "Xám chì", hex: "#4b4f56", image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Đen", hex: "#111111", image: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
+    sizes: ["29", "30", "31", "32"],
   },
 ];
 
@@ -101,10 +192,13 @@ export const JEANS_PRODUCTS: ProductItem[] = [
     price: 495000,
     originalPrice: 650000,
     discountPercent: 24,
-    image: "https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1582552938357-32b906df40cb?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "HÀNG MỚI",
-    colors: [{ name: "Xanh nhạt", hex: "#8fb8de" }, { name: "Xanh đậm", hex: "#23416e" }],
+    colors: [
+      { name: "Xanh nhạt", hex: "#8fb8de", image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Xanh đậm", hex: "#23416e", image: "https://images.unsplash.com/photo-1582552938357-32b906df40cb?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["29", "30", "31", "32", "34"],
   },
   {
@@ -114,10 +208,12 @@ export const JEANS_PRODUCTS: ProductItem[] = [
     price: 545000,
     originalPrice: 690000,
     discountPercent: 21,
-    image: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "SALE",
-    colors: [{ name: "Đen xám wash", hex: "#3a3a3a" }],
+    colors: [
+      { name: "Đen xám wash", hex: "#3a3a3a", image: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["29", "30", "31", "32"],
   },
   {
@@ -127,10 +223,13 @@ export const JEANS_PRODUCTS: ProductItem[] = [
     price: 495000,
     originalPrice: 590000,
     discountPercent: 16,
-    image: "https://images.unsplash.com/photo-1582552938357-32b906df40cb?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1582552938357-32b906df40cb?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1604176354204-9268737828e4?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "HÀNG MỚI",
-    colors: [{ name: "Xanh retro", hex: "#415f8a" }, { name: "Xám khói", hex: "#6c7178" }],
+    colors: [
+      { name: "Xanh retro", hex: "#415f8a", image: "https://images.unsplash.com/photo-1582552938357-32b906df40cb?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Xám khói", hex: "#6c7178", image: "https://images.unsplash.com/photo-1604176354204-9268737828e4?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["29", "30", "31", "32"],
   },
   {
@@ -140,10 +239,12 @@ export const JEANS_PRODUCTS: ProductItem[] = [
     price: 465000,
     originalPrice: 580000,
     discountPercent: 20,
-    image: "https://images.unsplash.com/photo-1604176354204-9268737828e4?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1604176354204-9268737828e4?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "SALE",
-    colors: [{ name: "Xanh mid blue", hex: "#2d5282" }],
+    colors: [
+      { name: "Xanh mid blue", hex: "#2d5282", image: "https://images.unsplash.com/photo-1604176354204-9268737828e4?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["29", "30", "31", "32"],
   },
   {
@@ -153,10 +254,13 @@ export const JEANS_PRODUCTS: ProductItem[] = [
     price: 485000,
     originalPrice: 595000,
     discountPercent: 18,
-    image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "HÀNG MỚI",
-    colors: [{ name: "Đen tuyền", hex: "#0f0f0f" }, { name: "Xanh đen", hex: "#1c2b42" }],
+    colors: [
+      { name: "Đen tuyền", hex: "#0f0f0f", image: "https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Xanh đen", hex: "#1c2b42", image: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["29", "30", "31", "32", "34"],
   },
 ];
@@ -169,10 +273,13 @@ export const AUTUMN_PRODUCTS: ProductItem[] = [
     price: 685000,
     originalPrice: 850000,
     discountPercent: 19,
-    image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1548883354-7622d03aca27?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1548883354-7622d03aca27?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "HÀNG MỚI",
-    colors: [{ name: "Rêu", hex: "#4b5320" }, { name: "Đen", hex: "#111111" }],
+    colors: [
+      { name: "Rêu", hex: "#4b5320", image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Đen", hex: "#111111", image: "https://images.unsplash.com/photo-1548883354-7622d03aca27?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["M", "L", "XL"],
   },
   {
@@ -182,10 +289,13 @@ export const AUTUMN_PRODUCTS: ProductItem[] = [
     price: 525000,
     originalPrice: 650000,
     discountPercent: 19,
-    image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "SALE",
-    colors: [{ name: "Kem", hex: "#f0ede6" }, { name: "Xám khói", hex: "#6c757d" }],
+    colors: [
+      { name: "Kem", hex: "#f0ede6", image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Xám khói", hex: "#6c757d", image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["M", "L", "XL"],
   },
   {
@@ -195,10 +305,13 @@ export const AUTUMN_PRODUCTS: ProductItem[] = [
     price: 445000,
     originalPrice: 550000,
     discountPercent: 19,
-    image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "HÀNG MỚI",
-    colors: [{ name: "Nâu be", hex: "#96714d" }, { name: "Đen", hex: "#111111" }],
+    colors: [
+      { name: "Nâu be", hex: "#96714d", image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Đen", hex: "#111111", image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["M", "L", "XL"],
   },
   {
@@ -208,10 +321,13 @@ export const AUTUMN_PRODUCTS: ProductItem[] = [
     price: 575000,
     originalPrice: 690000,
     discountPercent: 17,
-    image: "https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1548883354-7622d03aca27?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1548883354-7622d03aca27?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "SALE",
-    colors: [{ name: "Trắng phối xanh", hex: "#d0dceb" }, { name: "Đen", hex: "#111111" }],
+    colors: [
+      { name: "Trắng phối xanh", hex: "#d0dceb", image: "https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Đen", hex: "#111111", image: "https://images.unsplash.com/photo-1548883354-7622d03aca27?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["M", "L", "XL"],
   },
   {
@@ -221,10 +337,13 @@ export const AUTUMN_PRODUCTS: ProductItem[] = [
     price: 495000,
     originalPrice: 620000,
     discountPercent: 20,
-    image: "https://images.unsplash.com/photo-1614975058789-41316d0e2e9c?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1614975058789-41316d0e2e9c?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "HÀNG MỚI",
-    colors: [{ name: "Xám tiêu", hex: "#8c8c8c" }, { name: "Đen", hex: "#111111" }],
+    colors: [
+      { name: "Xám tiêu", hex: "#8c8c8c", image: "https://images.unsplash.com/photo-1614975058789-41316d0e2e9c?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Đen", hex: "#111111", image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["M", "L", "XL"],
   },
   {
@@ -234,10 +353,13 @@ export const AUTUMN_PRODUCTS: ProductItem[] = [
     price: 465000,
     originalPrice: 580000,
     discountPercent: 20,
-    image: "https://images.unsplash.com/photo-1625910513413-5a278ec6f236?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "SALE",
-    colors: [{ name: "Trắng kem", hex: "#f3ede3" }, { name: "Xanh navy", hex: "#182c4d" }],
+    colors: [
+      { name: "Trắng kem", hex: "#f3ede3", image: "https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Xanh navy", hex: "#182c4d", image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["M", "L", "XL"],
   },
   {
@@ -247,10 +369,13 @@ export const AUTUMN_PRODUCTS: ProductItem[] = [
     price: 145000,
     originalPrice: 190000,
     discountPercent: 24,
-    image: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1576871337622-98d48d1cf531?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "SALE",
-    colors: [{ name: "Xám xước", hex: "#8a8f94" }, { name: "Đen", hex: "#111111" }],
+    colors: [
+      { name: "Xám xước", hex: "#8a8f94", image: "https://images.unsplash.com/photo-1576871337622-98d48d1cf531?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Đen", hex: "#111111", image: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["Freesize"],
   },
   {
@@ -260,10 +385,13 @@ export const AUTUMN_PRODUCTS: ProductItem[] = [
     price: 325000,
     originalPrice: 420000,
     discountPercent: 22,
-    image: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "HÀNG MỚI",
-    colors: [{ name: "Nâu sẫm", hex: "#3e2723" }, { name: "Đen", hex: "#111111" }],
+    colors: [
+      { name: "Nâu sẫm", hex: "#3e2723", image: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Đen", hex: "#111111", image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["M", "L", "XL"],
   },
   {
@@ -273,10 +401,13 @@ export const AUTUMN_PRODUCTS: ProductItem[] = [
     price: 495000,
     originalPrice: 620000,
     discountPercent: 20,
-    image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1614975058789-41316d0e2e9c?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1614975058789-41316d0e2e9c?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "SALE",
-    colors: [{ name: "Xám tiêu", hex: "#9e9e9e" }, { name: "Xanh rêu", hex: "#334533" }],
+    colors: [
+      { name: "Xám tiêu", hex: "#9e9e9e", image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Xanh rêu", hex: "#334533", image: "https://images.unsplash.com/photo-1614975058789-41316d0e2e9c?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["M", "L", "XL"],
   },
 ];
@@ -289,10 +420,13 @@ export const TSHIRT_PRODUCTS: ProductItem[] = [
     price: 295000,
     originalPrice: 380000,
     discountPercent: 22,
-    image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "HÀNG MỚI",
-    colors: [{ name: "Trắng", hex: "#ffffff" }, { name: "Đen", hex: "#111111" }],
+    colors: [
+      { name: "Trắng", hex: "#ffffff", image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Đen", hex: "#111111", image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["S", "M", "L", "XL"],
   },
   {
@@ -302,10 +436,13 @@ export const TSHIRT_PRODUCTS: ProductItem[] = [
     price: 365000,
     originalPrice: 450000,
     discountPercent: 19,
-    image: "https://images.unsplash.com/photo-1625910513413-5a278ec6f236?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "SALE",
-    colors: [{ name: "Be cát", hex: "#d9cbba" }, { name: "Xanh navy", hex: "#182c4d" }],
+    colors: [
+      { name: "Be cát", hex: "#d9cbba", image: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Xanh navy", hex: "#182c4d", image: "https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["M", "L", "XL"],
   },
   {
@@ -315,10 +452,14 @@ export const TSHIRT_PRODUCTS: ProductItem[] = [
     price: 265000,
     originalPrice: 350000,
     discountPercent: 24,
-    image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "HOT",
-    colors: [{ name: "Đen tuyền", hex: "#111111" }, { name: "Trắng", hex: "#ffffff" }, { name: "Xám đá", hex: "#7a7a7a" }],
+    colors: [
+      { name: "Đen tuyền", hex: "#111111", image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Trắng", hex: "#ffffff", image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Xám đá", hex: "#7a7a7a", image: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["S", "M", "L", "XL"],
   },
   {
@@ -328,10 +469,12 @@ export const TSHIRT_PRODUCTS: ProductItem[] = [
     price: 285000,
     originalPrice: 360000,
     discountPercent: 21,
-    image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "HÀNG MỚI",
-    colors: [{ name: "Be xám", hex: "#cfc6bc" }],
+    colors: [
+      { name: "Be xám", hex: "#cfc6bc", image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["M", "L", "XL"],
   },
   {
@@ -341,10 +484,13 @@ export const TSHIRT_PRODUCTS: ProductItem[] = [
     price: 295000,
     originalPrice: 380000,
     discountPercent: 22,
-    image: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "SALE",
-    colors: [{ name: "Xám chì", hex: "#525252" }, { name: "Xanh navy", hex: "#1c2b42" }],
+    colors: [
+      { name: "Xám chì", hex: "#525252", image: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Xanh navy", hex: "#1c2b42", image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["S", "M", "L", "XL"],
   },
 ];
@@ -357,10 +503,13 @@ export const TROUSERS_PRODUCTS: ProductItem[] = [
     price: 495000,
     originalPrice: 620000,
     discountPercent: 20,
-    image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "HÀNG MỚI",
-    colors: [{ name: "Nâu be", hex: "#8b7e66" }, { name: "Đen", hex: "#111111" }],
+    colors: [
+      { name: "Nâu be", hex: "#8b7e66", image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Đen", hex: "#111111", image: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["29", "30", "31", "32"],
   },
   {
@@ -370,10 +519,13 @@ export const TROUSERS_PRODUCTS: ProductItem[] = [
     price: 465000,
     originalPrice: 580000,
     discountPercent: 20,
-    image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "SALE",
-    colors: [{ name: "Xám tro", hex: "#949494" }, { name: "Đen", hex: "#111111" }],
+    colors: [
+      { name: "Xám tro", hex: "#949494", image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Đen", hex: "#111111", image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["29", "30", "31", "32"],
   },
   {
@@ -383,10 +535,13 @@ export const TROUSERS_PRODUCTS: ProductItem[] = [
     price: 445000,
     originalPrice: 550000,
     discountPercent: 19,
-    image: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "HÀNG MỚI",
-    colors: [{ name: "Be sáng", hex: "#d9d0be" }, { name: "Nâu rêu", hex: "#565243" }],
+    colors: [
+      { name: "Be sáng", hex: "#d9d0be", image: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Nâu rêu", hex: "#565243", image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["29", "30", "31", "32"],
   },
   {
@@ -396,10 +551,13 @@ export const TROUSERS_PRODUCTS: ProductItem[] = [
     price: 485000,
     originalPrice: 595000,
     discountPercent: 18,
-    image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "SALE",
-    colors: [{ name: "Nâu olive", hex: "#635848" }, { name: "Đen", hex: "#111111" }],
+    colors: [
+      { name: "Nâu olive", hex: "#635848", image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Đen", hex: "#111111", image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["29", "30", "31", "32", "34"],
   },
   {
@@ -409,11 +567,13 @@ export const TROUSERS_PRODUCTS: ProductItem[] = [
     price: 520000,
     originalPrice: 650000,
     discountPercent: 20,
-    image: "https://images.unsplash.com/photo-1582552938357-32b906df40cb?q=80&w=600&auto=format&fit=crop",
-    hoverImage: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1582552938357-32b906df40cb?q=80&w=600&h=800&auto=format&fit=crop",
+    hoverImage: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=600&h=800&auto=format&fit=crop",
     badge: "HOT",
-    colors: [{ name: "Xám xi măng", hex: "#7a8288" }, { name: "Xanh navy", hex: "#1a2536" }],
+    colors: [
+      { name: "Xám xi măng", hex: "#7a8288", image: "https://images.unsplash.com/photo-1582552938357-32b906df40cb?q=80&w=600&h=800&auto=format&fit=crop" },
+      { name: "Xanh navy", hex: "#1a2536", image: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=600&h=800&auto=format&fit=crop" },
+    ],
     sizes: ["29", "30", "31", "32"],
   },
 ];
-

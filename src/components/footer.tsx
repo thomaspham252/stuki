@@ -22,8 +22,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Col 1: Logo & Hotline & Newsletter */}
           <div className="space-y-4">
-            <span className="text-2xl font-black tracking-tight text-white uppercase font-serif">
-              ICONDENIM
+            <span className="text-2xl font-black tracking-tight text-white uppercase tracking-wider">
+              STUKI
             </span>
             <p className="text-zinc-400 text-xs leading-relaxed">
               Thương hiệu thời trang nam cao cấp phong cách Modern Urban & TechDenim tại Việt Nam.

@@ -39,7 +39,7 @@ export default function Header() {
         <div className="flex items-center">
           <Link href="/" className="flex items-center gap-1">
             <span className="text-2xl font-black tracking-tighter text-[#0b2b68] uppercase">
-              ICONDENIM
+              STUKI
             </span>
           </Link>
         </div>
@@ -86,28 +86,6 @@ export default function Header() {
           <Link href="#double-deal" className="hover:text-[#0b2b68] transition-colors">
             HÀNG BÁN CHẠY
           </Link>
-
-          {/* DENIM (Dropdown) */}
-          <div
-            className="relative py-5"
-            onMouseEnter={() => setActiveDropdown("denim")}
-            onMouseLeave={() => setActiveDropdown(null)}
-          >
-            <button className="flex items-center gap-1 hover:text-[#0b2b68] transition-colors">
-              DENIM
-              <ChevronDown className="h-3.5 w-3.5" />
-            </button>
-            {activeDropdown === "denim" && (
-              <div className="absolute top-full left-0 z-50 w-56 rounded-b-md bg-white p-4 shadow-xl border-t-2 border-[#0b2b68] animate-in fade-in">
-                <ul className="space-y-2.5 text-xs font-semibold text-zinc-700">
-                  <li><a href="#jeans" className="hover:text-[#0b2b68] block">TechUrban Jeans</a></li>
-                  <li><a href="#jeans" className="hover:text-[#0b2b68] block">Smart Jeans Co Giãn</a></li>
-                  <li><a href="#jeans" className="hover:text-[#0b2b68] block">ProCOOL Siêu Mát</a></li>
-                  <li><a href="#jeans" className="hover:text-[#0b2b68] block">Áo Khoác Denim</a></li>
-                </ul>
-              </div>
-            )}
-          </div>
 
           {/* SALE 11.11 (Chữ đỏ nổi bật) */}
           <Link
@@ -216,9 +194,6 @@ export default function Header() {
           </a>
           <a href="#double-deal" onClick={() => setMobileMenuOpen(false)} className="block py-1">
             Hàng Bán Chạy
-          </a>
-          <a href="#jeans" onClick={() => setMobileMenuOpen(false)} className="block py-1">
-            Denim
           </a>
           <a href="#double-deal" onClick={() => setMobileMenuOpen(false)} className="block py-1 text-red-600 font-bold">
             Sale 11.11

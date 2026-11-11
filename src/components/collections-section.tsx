@@ -34,7 +34,7 @@ export default function CollectionsSection() {
           <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#0b2b68]">
             EXCLUSIVE CAPSULES
           </span>
-          <h2 className="mt-1 text-3xl font-black uppercase tracking-tight text-zinc-950 font-serif">
+          <h2 className="mt-1 text-3xl font-black uppercase tracking-tight text-zinc-950">
             BỘ SƯU TẬP MỚI
           </h2>
           <div className="mt-2 mx-auto h-0.5 w-12 bg-[#0b2b68]" />
@@ -58,7 +58,7 @@ export default function CollectionsSection() {
                 <span className="text-[11px] font-bold uppercase tracking-widest text-zinc-300">
                   {col.subtitle}
                 </span>
-                <h3 className="mt-1 text-xl font-black uppercase tracking-wide font-serif">
+                <h3 className="mt-1 text-xl font-black uppercase tracking-wide">
                   {col.title}
                 </h3>
                 <span className="mt-3 inline-block text-xs font-bold uppercase tracking-widest text-white underline underline-offset-4 group-hover:text-amber-300 transition-colors">

@@ -1,67 +1,195 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 260" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" width="100%" height="100%">
   <defs>
+    <!-- Model photo clip path -->
     <clipPath id="modelClip">
-      <rect x="35" y="20" width="180" height="220" rx="12" ry="12" />
+      <rect x="40" y="40" width="360" height="580" rx="20" ry="20" />
     </clipPath>
-    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0b2b68" flood-opacity="0.08" />
+
+    <!-- Drop shadows -->
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0b2b68" flood-opacity="0.10" />
     </filter>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#0b2b68" flood-opacity="0.08" />
+    </filter>
+
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8F4FD" />
+      <stop offset="50%" stop-color="#DCEDFB" />
+      <stop offset="100%" stop-color="#CBE5F9" />
+    </linearGradient>
+
+    <!-- Voucher Top Notch Gradient -->
+    <linearGradient id="voucherHeadGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0B2A6F" />
+      <stop offset="100%" stop-color="#1A4FA8" />
+    </linearGradient>
   </defs>
 
-  <!-- Background Light Blue with soft border -->
-  <rect x="0" y="0" width="1200" height="260" rx="16" ry="16" fill="#e0f1fc" stroke="#c8e4f8" stroke-width="2" />
+  <!-- Main Background Container -->
+  <rect x="0" y="0" width="1200" height="660" rx="24" ry="24" fill="url(#bgGrad)" stroke="#BCE0F7" stroke-width="2" />
 
-  <!-- Model Photo on Left -->
-  <image href="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&amp;w=600&amp;auto=format&amp;fit=crop" x="35" y="20" width="180" height="220" preserveAspectRatio="xMidYMid slice" clip-path="url(#modelClip)" />
-  <rect x="35" y="20" width="180" height="220" rx="12" ry="12" fill="none" stroke="#ffffff" stroke-width="2" />
+  <!-- Subtle Decorative Circles in Background -->
+  <circle cx="1150" cy="50" r="160" fill="#ffffff" fill-opacity="0.25" />
+  <circle cx="600" cy="620" r="220" fill="#ffffff" fill-opacity="0.2" />
+  <circle cx="100" cy="50" r="80" fill="#ffffff" fill-opacity="0.2" />
 
-  <!-- Center Typography -->
-  <g transform="translate(245, 0)">
-    <text x="0" y="65" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-style="italic" font-size="16" fill="#0b2b68" letter-spacing="3">DOUBLE DEAL</text>
-    <text x="0" y="145" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="76" fill="#0b2b68" letter-spacing="-2">11.11</text>
+  <!-- ================= LEFT: FASHION MODEL PHOTO ================= -->
+  <g filter="url(#softShadow)">
+    <image
+      href="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&amp;w=800&amp;h=1200&amp;auto=format&amp;fit=crop"
+      x="40"
+      y="40"
+      width="360"
+      height="580"
+      preserveAspectRatio="xMidYMid slice"
+      clip-path="url(#modelClip)"
+    />
+    <rect x="40" y="40" width="360" height="580" rx="20" ry="20" fill="none" stroke="#ffffff" stroke-width="4" />
     
-    <!-- Sale Up To Badge & 50% -->
-    <rect x="0" y="170" width="100" height="26" rx="4" ry="4" fill="#0b2b68" />
-    <text x="50" y="188" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="12" fill="#ffffff" text-anchor="middle" letter-spacing="1">SALE UP TO</text>
-    
-    <text x="110" y="215" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="56" fill="#0b2b68" letter-spacing="-2">50%</text>
+    <!-- Model badge overlay -->
+    <rect x="60" y="555" width="170" height="42" rx="21" ry="21" fill="#0B2A6F" fill-opacity="0.9" />
+    <text x="145" y="581" font-family="Montserrat, system-ui, sans-serif" font-weight="800" font-size="12" fill="#ffffff" text-anchor="middle" letter-spacing="1">MEN COLLECTION</text>
   </g>
 
-  <!-- Right Vouchers & Timer Area -->
-  <g transform="translate(680, 0)">
-    <!-- Voucher 1 -->
-    <rect x="0" y="30" width="225" height="78" rx="8" ry="8" fill="#ffffff" filter="url(#cardShadow)" />
-    <text x="112" y="55" font-family="system-ui, -apple-system, sans-serif" font-weight="500" font-size="11" fill="#4a5568" text-anchor="middle">Toàn bộ sản phẩm</text>
-    <text x="112" y="85" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="22" fill="#0b2b68" text-anchor="middle">-11% <tspan font-size="11" font-weight="normal" fill="#718096">tối đa 30K</tspan></text>
-
-    <!-- Voucher 2 -->
-    <rect x="240" y="30" width="225" height="78" rx="8" ry="8" fill="#ffffff" filter="url(#cardShadow)" />
-    <text x="352" y="55" font-family="system-ui, -apple-system, sans-serif" font-weight="500" font-size="11" fill="#4a5568" text-anchor="middle">Voucher giảm đến</text>
-    <text x="352" y="88" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="26" fill="#0b2b68" text-anchor="middle">211K</text>
-
-    <!-- Flash Voucher Banner & Timer -->
-    <rect x="0" y="122" width="465" height="52" rx="8" ry="8" fill="#0b2b68" />
-    <path d="M22 142 L28 142 L25 154 L34 154 L20 168 L24 157 L16 157 Z" fill="#ecc94b" />
-    <text x="40" y="154" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="13" fill="#ffffff" letter-spacing="1">FLASH VOUCHER 111K</text>
-
-    <!-- Timer Boxes -->
-    <g transform="translate(350, 134)">
-      <rect x="0" y="0" width="28" height="28" rx="4" ry="4" fill="#ffffff" />
-      <text x="14" y="19" font-family="monospace" font-weight="bold" font-size="14" fill="#0b2b68" text-anchor="middle">11</text>
-      
-      <text x="34" y="19" font-family="monospace" font-weight="bold" font-size="14" fill="#ffffff" text-anchor="middle">:</text>
-      
-      <rect x="40" y="0" width="28" height="28" rx="4" ry="4" fill="#ffffff" />
-      <text x="54" y="19" font-family="monospace" font-weight="bold" font-size="14" fill="#0b2b68" text-anchor="middle">59</text>
-      
-      <text x="74" y="19" font-family="monospace" font-weight="bold" font-size="14" fill="#ffffff" text-anchor="middle">:</text>
-      
-      <rect x="80" y="0" width="28" height="28" rx="4" ry="4" fill="#ffffff" />
-      <text x="94" y="19" font-family="monospace" font-weight="bold" font-size="14" fill="#0b2b68" text-anchor="middle">41</text>
+  <!-- ================= CENTER: MEGA EVENT TYPOGRAPHY ================= -->
+  <g transform="translate(440, 0)">
+    <!-- Top Pill Tag -->
+    <g transform="translate(0, 65)">
+      <rect x="0" y="0" width="180" height="34" rx="17" ry="17" fill="#0B2A6F" />
+      <path d="M18 17 L24 9 L23 16 L29 16 L21 26 L22 18 Z" fill="#FACC15" />
+      <text x="100" y="22" font-family="Montserrat, system-ui, sans-serif" font-weight="900" font-size="12" fill="#ffffff" text-anchor="middle" letter-spacing="2">DOUBLE DEAL</text>
     </g>
 
-    <!-- Date line -->
-    <text x="465" y="200" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="11" fill="#0b2b68" text-anchor="end">⏰ Áp dụng: 10.11 - 12.11</text>
+    <!-- Main Title 11.11 -->
+    <text x="0" y="220" font-family="Montserrat, system-ui, sans-serif" font-weight="900" font-size="128" fill="#0B2A6F" letter-spacing="-5">11.11</text>
+
+    <!-- Mega Sale Offer Block -->
+    <g transform="translate(0, 245)">
+      <!-- Red Badge SALE UP TO -->
+      <rect x="0" y="0" width="150" height="38" rx="6" ry="6" fill="#E60012" />
+      <text x="75" y="24" font-family="Montserrat, system-ui, sans-serif" font-weight="900" font-size="15" fill="#ffffff" text-anchor="middle" letter-spacing="1.5">SALE UP TO</text>
+
+      <!-- +50% Giant Text -->
+      <text x="165" y="42" font-family="Montserrat, system-ui, sans-serif" font-weight="900" font-size="64" fill="#0B2A6F" letter-spacing="-2">+50%</text>
+    </g>
+
+    <!-- Subtitle Description -->
+    <text x="0" y="340" font-family="Montserrat, system-ui, sans-serif" font-weight="800" font-size="18" fill="#0B2A6F" letter-spacing="0.5">SIÊU ĐẠI TIỆC MUA SẮM LỚN NHẤT NĂM</text>
+    
+    <text x="0" y="375" font-family="Montserrat, system-ui, sans-serif" font-weight="500" font-size="14" fill="#475569">
+      Ưu đãi độc quyền toàn bộ sản phẩm áo thun, sơ mi, quần jeans &amp; kaki
+    </text>
+
+    <!-- Feature Checklist -->
+    <g transform="translate(0, 415)">
+      <circle cx="10" cy="10" r="10" fill="#0B2A6F" />
+      <path d="M6 10 L9 13 L15 7" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+      <text x="28" y="15" font-family="Montserrat, system-ui, sans-serif" font-weight="700" font-size="13" fill="#1E293B">Miễn phí giao hàng toàn quốc đơn từ 399K</text>
+    </g>
+
+    <g transform="translate(0, 448)">
+      <circle cx="10" cy="10" r="10" fill="#0B2A6F" />
+      <path d="M6 10 L9 13 L15 7" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+      <text x="28" y="15" font-family="Montserrat, system-ui, sans-serif" font-weight="700" font-size="13" fill="#1E293B">Đổi trả miễn phí tận nhà trong 30 ngày</text>
+    </g>
+
+    <g transform="translate(0, 481)">
+      <circle cx="10" cy="10" r="10" fill="#0B2A6F" />
+      <path d="M6 10 L9 13 L15 7" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+      <text x="28" y="15" font-family="Montserrat, system-ui, sans-serif" font-weight="700" font-size="13" fill="#1E293B">Bảo hành đường may &amp; form dáng trọn đời</text>
+    </g>
+
+    <!-- Call to action button -->
+    <g transform="translate(0, 535)">
+      <rect x="0" y="0" width="220" height="52" rx="10" ry="10" fill="#0B2A6F" filter="url(#softShadow)" />
+      <text x="110" y="32" font-family="Montserrat, system-ui, sans-serif" font-weight="900" font-size="14" fill="#ffffff" text-anchor="middle" letter-spacing="1.5">SĂN DEAL NGAY →</text>
+    </g>
+  </g>
+
+  <!-- ================= RIGHT: VOUCHER CARDS & COUNTDOWN ================= -->
+  <g transform="translate(790, 0)">
+    <!-- VOUCHER CARD 1 -->
+    <g transform="translate(0, 45)" filter="url(#cardShadow)">
+      <rect x="0" y="0" width="370" height="135" rx="14" ry="14" fill="#ffffff" stroke="#D1E8F8" stroke-width="1.5" />
+      <!-- Left decorative color stripe -->
+      <path d="M0 14 Q0 0 14 0 L24 0 L24 135 L14 135 Q0 135 0 121 Z" fill="#0B2A6F" />
+      
+      <!-- Voucher Content -->
+      <text x="40" y="32" font-family="Montserrat, system-ui, sans-serif" font-weight="800" font-size="11" fill="#64748B" letter-spacing="1">MÃ GIẢM GIÁ TOÀN BỘ SẢN PHẨM</text>
+      <text x="40" y="70" font-family="Montserrat, system-ui, sans-serif" font-weight="900" font-size="28" fill="#0B2A6F">-11% <tspan font-size="14" font-weight="600" fill="#64748B">Tối đa 50K</tspan></text>
+      <text x="40" y="98" font-family="Montserrat, system-ui, sans-serif" font-weight="600" font-size="12" fill="#94A3B8">Áp dụng cho mọi đơn hàng từ 299K</text>
+
+      <!-- Save Code Button -->
+      <rect x="260" y="50" width="92" height="38" rx="8" ry="8" fill="#E8F4FD" stroke="#0B2A6F" stroke-width="1.2" />
+      <text x="306" y="74" font-family="Montserrat, system-ui, sans-serif" font-weight="800" font-size="12" fill="#0B2A6F" text-anchor="middle">LƯU MÃ</text>
+    </g>
+
+    <!-- VOUCHER CARD 2 -->
+    <g transform="translate(0, 200)" filter="url(#cardShadow)">
+      <rect x="0" y="0" width="370" height="135" rx="14" ry="14" fill="#ffffff" stroke="#D1E8F8" stroke-width="1.5" />
+      <!-- Left decorative color stripe -->
+      <path d="M0 14 Q0 0 14 0 L24 0 L24 135 L14 135 Q0 135 0 121 Z" fill="#E60012" />
+
+      <!-- Voucher Content -->
+      <text x="40" y="32" font-family="Montserrat, system-ui, sans-serif" font-weight="800" font-size="11" fill="#64748B" letter-spacing="1">VOUCHER ĐẶC QUYỀN 11.11</text>
+      <text x="40" y="70" font-family="Montserrat, system-ui, sans-serif" font-weight="900" font-size="32" fill="#E60012">211.000đ</text>
+      <text x="40" y="98" font-family="Montserrat, system-ui, sans-serif" font-weight="600" font-size="12" fill="#94A3B8">Áp dụng cho đơn hàng từ 999K</text>
+
+      <!-- Save Code Button -->
+      <rect x="260" y="50" width="92" height="38" rx="8" ry="8" fill="#FFF1F2" stroke="#E60012" stroke-width="1.2" />
+      <text x="306" y="74" font-family="Montserrat, system-ui, sans-serif" font-weight="800" font-size="12" fill="#E60012" text-anchor="middle">LƯU MÃ</text>
+    </g>
+
+    <!-- FLASH VOUCHER 111K & COUNTDOWN BOX -->
+    <g transform="translate(0, 355)" filter="url(#cardShadow)">
+      <rect x="0" y="0" width="370" height="180" rx="16" ry="16" fill="#0B2A6F" />
+      
+      <!-- Flash Voucher Header -->
+      <path d="M22 28 L30 16 L29 27 L36 27 L25 42 L27 30 Z" fill="#FACC15" />
+      <text x="44" y="32" font-family="Montserrat, system-ui, sans-serif" font-weight="900" font-size="15" fill="#ffffff" letter-spacing="1">FLASH VOUCHER 111.000đ</text>
+      <text x="24" y="60" font-family="Montserrat, system-ui, sans-serif" font-weight="600" font-size="12" fill="#93C5FD">Số lượng có hạn • Khung giờ: 0H - 12H - 20H</text>
+
+      <!-- Countdown Area Box -->
+      <g transform="translate(24, 78)">
+        <text x="0" y="24" font-family="Montserrat, system-ui, sans-serif" font-weight="700" font-size="12" fill="#ffffff">KẾT THÚC TRONG:</text>
+
+        <!-- Timer Digits -->
+        <!-- Hours -->
+        <g transform="translate(140, 0)">
+          <rect x="0" y="0" width="46" height="42" rx="8" ry="8" fill="#ffffff" />
+          <text x="23" y="28" font-family="Montserrat, monospace, sans-serif" font-weight="900" font-size="20" fill="#0B2A6F" text-anchor="middle">11</text>
+          <text x="23" y="54" font-family="Montserrat, system-ui, sans-serif" font-weight="700" font-size="9" fill="#93C5FD" text-anchor="middle">GIỜ</text>
+        </g>
+
+        <text x="194" y="28" font-family="Montserrat, monospace, sans-serif" font-weight="900" font-size="20" fill="#ffffff" text-anchor="middle">:</text>
+
+        <!-- Minutes -->
+        <g transform="translate(202, 0)">
+          <rect x="0" y="0" width="46" height="42" rx="8" ry="8" fill="#ffffff" />
+          <text x="23" y="28" font-family="Montserrat, monospace, sans-serif" font-weight="900" font-size="20" fill="#0B2A6F" text-anchor="middle">59</text>
+          <text x="23" y="54" font-family="Montserrat, system-ui, sans-serif" font-weight="700" font-size="9" fill="#93C5FD" text-anchor="middle">PHÚT</text>
+        </g>
+
+        <text x="256" y="28" font-family="Montserrat, monospace, sans-serif" font-weight="900" font-size="20" fill="#ffffff" text-anchor="middle">:</text>
+
+        <!-- Seconds -->
+        <g transform="translate(264, 0)">
+          <rect x="0" y="0" width="46" height="42" rx="8" ry="8" fill="#ffffff" />
+          <text x="23" y="28" font-family="Montserrat, monospace, sans-serif" font-weight="900" font-size="20" fill="#E60012" text-anchor="middle">41</text>
+          <text x="23" y="54" font-family="Montserrat, system-ui, sans-serif" font-weight="700" font-size="9" fill="#93C5FD" text-anchor="middle">GIÂY</text>
+        </g>
+      </g>
+
+      <!-- Bottom Status Notice -->
+      <rect x="0" y="145" width="370" height="35" rx="0" ry="0" fill="#071E52" />
+      <text x="185" y="167" font-family="Montserrat, system-ui, sans-serif" font-weight="700" font-size="11" fill="#FACC15" text-anchor="middle">⚡ Đang diễn ra • Đã có 4.820 người nhận mã</text>
+    </g>
+
+    <!-- Campaign Date & Validity -->
+    <text x="365" y="575" font-family="Montserrat, system-ui, sans-serif" font-weight="800" font-size="12" fill="#0B2A6F" text-anchor="end">
+      ⏰ ÁP DỤNG DUY NHẤT: 10.11 - 12.11.2026
+    </text>
   </g>
 </svg>
-

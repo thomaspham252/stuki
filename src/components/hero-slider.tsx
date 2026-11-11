@@ -66,7 +66,7 @@ export default function HeroSlider() {
         <span className="text-[11px] sm:text-xs md:text-sm font-semibold tracking-[0.25em] sm:tracking-[0.3em] uppercase drop-shadow-md">
           {slide.subTitle}
         </span>
-        <h1 className="mt-1 sm:mt-2 text-2xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black uppercase tracking-tight drop-shadow-lg font-serif leading-none">
+        <h1 className="mt-1 sm:mt-2 text-2xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black uppercase tracking-tight drop-shadow-lg leading-none">
           {slide.title}
         </h1>
         <p className="mt-1.5 sm:mt-3 text-[11px] sm:text-sm md:text-base font-medium tracking-[0.15em] sm:tracking-[0.2em] uppercase text-zinc-200 drop-shadow-sm">

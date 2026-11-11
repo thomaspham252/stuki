@@ -6,9 +6,7 @@ import JeansSection from "@/components/jeans-section";
 import AutumnSection from "@/components/autumn-section";
 import TshirtSection from "@/components/tshirt-section";
 import TrousersSection from "@/components/trousers-section";
-import CollectionsSection from "@/components/collections-section";
 import MixMatchSection from "@/components/mix-match-section";
-import TechUrbanJeans from "@/components/tech-urban-jeans";
 import InstagramSection from "@/components/instagram-section";
 
 export default function Home() {
@@ -35,16 +33,10 @@ export default function Home() {
       {/* 8. KHỐI QUẦN TÂY */}
       <TrousersSection />
 
-      {/* 9. "BỘ SƯU TẬP MỚI" (tiêu đề căn giữa, 3 card lớn) */}
-      <CollectionsSection />
-
-      {/* 10. "COMBO MIX & MATCH" (4 ảnh dọc, nút hotspot +) */}
+      {/* 9. "COMBO MIX & MATCH" (4 ảnh dọc, nút hotspot +) */}
       <MixMatchSection />
 
-      {/* 11. "TÌM HIỂU TECHURBAN JEANS" (3 panel Smart Jeans, ProCOOL, Lightweight) */}
-      <TechUrbanJeans />
-
-      {/* 12. "FOLLOW INSTAGRAM @..." (hàng 5 ảnh vuông) */}
+      {/* 10. "FOLLOW INSTAGRAM @..." (hàng 5 ảnh vuông) */}
       <InstagramSection />
     </div>
   );

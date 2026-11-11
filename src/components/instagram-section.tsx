@@ -37,7 +37,7 @@ export default function InstagramSection() {
             <InstagramIcon className="h-4 w-4" />
             FOLLOW US
           </div>
-          <h2 className="mt-1 text-xl sm:text-2xl font-black uppercase tracking-tight text-zinc-950 font-serif">
+          <h2 className="mt-1 text-xl sm:text-2xl font-black uppercase tracking-tight text-zinc-950">
             @ICONDENIM.OFFICIAL
           </h2>
         </div>

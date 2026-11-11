@@ -17,7 +17,7 @@ export default function TshirtSection() {
         {/* Header & Tabs */}
         <div className="mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-zinc-200 pb-4">
           <div>
-            <h2 className="text-2xl font-black uppercase tracking-tight text-zinc-950 font-serif">
+            <h2 className="text-2xl font-black uppercase tracking-tight text-zinc-950">
               ÁO THUN NAM
             </h2>
             <p className="text-xs text-zinc-500 font-medium">
@@ -31,11 +31,10 @@ export default function TshirtSection() {
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`relative pb-2 transition-colors ${
-                  activeTab === tab
-                    ? "text-[#0b2b68] font-black after:absolute after:bottom-0 after:inset-x-0 after:h-0.5 after:bg-[#0b2b68]"
-                    : "text-zinc-500 hover:text-black"
-                }`}
+                className={`relative pb-2 transition-colors ${activeTab === tab
+                  ? "text-[#0b2b68] font-black after:absolute after:bottom-0 after:inset-x-0 after:h-0.5 after:bg-[#0b2b68]"
+                  : "text-zinc-500 hover:text-black"
+                  }`}
               >
                 {tab}
               </button>
@@ -46,10 +45,10 @@ export default function TshirtSection() {
         {/* Layout: Left Banner + Right Products */}
         <div className="relative">
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
-            {/* Left Vertical Banner */}
-            <div className="relative aspect-3/4 w-full overflow-hidden rounded-xs bg-zinc-900 group shadow-sm">
+            {/* Left Vertical Banner: Cùng chiều cao và bo góc [20px] chuẩn bằng thẻ sản phẩm */}
+            <div className="relative h-full min-h-[400px] w-full overflow-hidden rounded-[20px] bg-zinc-900 group shadow-sm flex flex-col justify-end">
               <Image
-                src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=800&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800&h=1000&auto=format&fit=crop"
                 alt="Áo Thun"
                 fill
                 className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
@@ -58,7 +57,7 @@ export default function TshirtSection() {
                 <span className="text-[11px] font-bold uppercase tracking-widest text-zinc-300">
                   ESSENTIALS
                 </span>
-                <h3 className="mt-1 text-xl font-black uppercase tracking-tight font-serif leading-tight">
+                <h3 className="mt-1 text-xl font-black uppercase tracking-tight leading-tight">
                   ÁO THUN
                 </h3>
                 <a
@@ -80,7 +79,7 @@ export default function TshirtSection() {
 
         {/* Bottom "Xem tất cả" Button */}
         <div className="mt-8 flex justify-center">
-          <button className="rounded-xs border border-[#0b2b68] bg-transparent px-8 py-2 text-xs font-bold uppercase tracking-widest text-[#0b2b68] transition-colors hover:bg-[#0b2b68] hover:text-white">
+          <button className="rounded-[3px] border border-[#0b2b68] bg-transparent px-8 py-2 text-xs font-bold uppercase tracking-widest text-[#0b2b68] transition-colors hover:bg-[#0b2b68] hover:text-white cursor-pointer">
             Xem tất cả
           </button>
         </div>

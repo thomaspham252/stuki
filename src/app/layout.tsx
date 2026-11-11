@@ -1,18 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import CartDrawer from "@/components/cart-drawer";
 
-const geistSans = Geist({
+const montserrat = Montserrat({
   variable: "--font-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
+  subsets: ["vietnamese", "latin"],
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -27,9 +24,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="vi" className="h-full antialiased scroll-smooth">
+    <html lang="vi" className={`${montserrat.variable} h-full antialiased scroll-smooth`}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-full flex flex-col bg-white text-zinc-900 font-sans`}
+        className="min-h-full flex flex-col bg-white text-zinc-900 font-sans"
       >
         <Header />
         <main className="flex-1">{children}</main>

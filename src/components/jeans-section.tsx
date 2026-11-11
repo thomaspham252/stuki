@@ -25,7 +25,7 @@ export default function JeansSection() {
             <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#0b2b68]">
               ICONIC COLLECTION
             </span>
-            <h2 className="mt-1 text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#0b2b68] font-serif">
+            <h2 className="mt-1 text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#0b2b68]">
               TÌM JEANS <br />
               <span className="text-black">ĐẾN ICONDENIM</span>
             </h2>
@@ -37,7 +37,7 @@ export default function JeansSection() {
           {/* 2 Models Photo */}
           <div className="relative h-full w-1/2 max-w-md hidden sm:block">
             <Image
-              src="https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=800&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=800&auto=format&fit=crop"
               alt="Jeans models"
               fill
               className="object-cover object-top"
@@ -71,7 +71,7 @@ export default function JeansSection() {
 
         {/* Bottom "Xem tất cả" Button */}
         <div className="mt-8 flex justify-center">
-          <button className="rounded-xs border border-[#0b2b68] bg-transparent px-8 py-2 text-xs font-bold uppercase tracking-widest text-[#0b2b68] transition-colors hover:bg-[#0b2b68] hover:text-white">
+          <button className="rounded-[3px] border border-[#0b2b68] bg-transparent px-8 py-2 text-xs font-bold uppercase tracking-widest text-[#0b2b68] transition-colors hover:bg-[#0b2b68] hover:text-white cursor-pointer">
             Xem tất cả
           </button>
         </div>

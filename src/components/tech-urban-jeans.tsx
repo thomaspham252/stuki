@@ -38,7 +38,7 @@ export default function TechUrbanJeans() {
           <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#0b2b68]">
             INNOVATION IN DENIM
           </span>
-          <h2 className="mt-1 text-3xl font-black uppercase tracking-tight text-zinc-950 font-serif">
+          <h2 className="mt-1 text-3xl font-black uppercase tracking-tight text-zinc-950">
             TÌM HIỂU TECHURBAN JEANS
           </h2>
           <div className="mt-2 mx-auto h-0.5 w-12 bg-[#0b2b68]" />
@@ -73,7 +73,7 @@ export default function TechUrbanJeans() {
 
               {/* Bottom Typography */}
               <div className="absolute bottom-6 inset-x-6 text-white text-center">
-                <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tight font-serif drop-shadow-md">
+                <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tight drop-shadow-md">
                   {panel.title}
                 </h3>
                 <span className="mt-1 inline-block text-xs font-bold uppercase tracking-widest text-sky-300">
