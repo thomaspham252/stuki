@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 260" width="100%" height="100%">
+  <defs>
+    <clipPath id="modelClip">
+      <rect x="35" y="20" width="180" height="220" rx="12" ry="12" />
+    </clipPath>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0b2b68" flood-opacity="0.08" />
+    </filter>
+  </defs>
+
+  <!-- Background Light Blue with soft border -->
+  <rect x="0" y="0" width="1200" height="260" rx="16" ry="16" fill="#e0f1fc" stroke="#c8e4f8" stroke-width="2" />
+
+  <!-- Model Photo on Left -->
+  <image href="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&amp;w=600&amp;auto=format&amp;fit=crop" x="35" y="20" width="180" height="220" preserveAspectRatio="xMidYMid slice" clip-path="url(#modelClip)" />
+  <rect x="35" y="20" width="180" height="220" rx="12" ry="12" fill="none" stroke="#ffffff" stroke-width="2" />
+
+  <!-- Center Typography -->
+  <g transform="translate(245, 0)">
+    <text x="0" y="65" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-style="italic" font-size="16" fill="#0b2b68" letter-spacing="3">DOUBLE DEAL</text>
+    <text x="0" y="145" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="76" fill="#0b2b68" letter-spacing="-2">11.11</text>
+    
+    <!-- Sale Up To Badge & 50% -->
+    <rect x="0" y="170" width="100" height="26" rx="4" ry="4" fill="#0b2b68" />
+    <text x="50" y="188" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="12" fill="#ffffff" text-anchor="middle" letter-spacing="1">SALE UP TO</text>
+    
+    <text x="110" y="215" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="56" fill="#0b2b68" letter-spacing="-2">50%</text>
+  </g>
+
+  <!-- Right Vouchers & Timer Area -->
+  <g transform="translate(680, 0)">
+    <!-- Voucher 1 -->
+    <rect x="0" y="30" width="225" height="78" rx="8" ry="8" fill="#ffffff" filter="url(#cardShadow)" />
+    <text x="112" y="55" font-family="system-ui, -apple-system, sans-serif" font-weight="500" font-size="11" fill="#4a5568" text-anchor="middle">Toàn bộ sản phẩm</text>
+    <text x="112" y="85" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="22" fill="#0b2b68" text-anchor="middle">-11% <tspan font-size="11" font-weight="normal" fill="#718096">tối đa 30K</tspan></text>
+
+    <!-- Voucher 2 -->
+    <rect x="240" y="30" width="225" height="78" rx="8" ry="8" fill="#ffffff" filter="url(#cardShadow)" />
+    <text x="352" y="55" font-family="system-ui, -apple-system, sans-serif" font-weight="500" font-size="11" fill="#4a5568" text-anchor="middle">Voucher giảm đến</text>
+    <text x="352" y="88" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="26" fill="#0b2b68" text-anchor="middle">211K</text>
+
+    <!-- Flash Voucher Banner & Timer -->
+    <rect x="0" y="122" width="465" height="52" rx="8" ry="8" fill="#0b2b68" />
+    <path d="M22 142 L28 142 L25 154 L34 154 L20 168 L24 157 L16 157 Z" fill="#ecc94b" />
+    <text x="40" y="154" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="13" fill="#ffffff" letter-spacing="1">FLASH VOUCHER 111K</text>
+
+    <!-- Timer Boxes -->
+    <g transform="translate(350, 134)">
+      <rect x="0" y="0" width="28" height="28" rx="4" ry="4" fill="#ffffff" />
+      <text x="14" y="19" font-family="monospace" font-weight="bold" font-size="14" fill="#0b2b68" text-anchor="middle">11</text>
+      
+      <text x="34" y="19" font-family="monospace" font-weight="bold" font-size="14" fill="#ffffff" text-anchor="middle">:</text>
+      
+      <rect x="40" y="0" width="28" height="28" rx="4" ry="4" fill="#ffffff" />
+      <text x="54" y="19" font-family="monospace" font-weight="bold" font-size="14" fill="#0b2b68" text-anchor="middle">59</text>
+      
+      <text x="74" y="19" font-family="monospace" font-weight="bold" font-size="14" fill="#ffffff" text-anchor="middle">:</text>
+      
+      <rect x="80" y="0" width="28" height="28" rx="4" ry="4" fill="#ffffff" />
+      <text x="94" y="19" font-family="monospace" font-weight="bold" font-size="14" fill="#0b2b68" text-anchor="middle">41</text>
+    </g>
+
+    <!-- Date line -->
+    <text x="465" y="200" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="11" fill="#0b2b68" text-anchor="end">⏰ Áp dụng: 10.11 - 12.11</text>
+  </g>
+</svg>
