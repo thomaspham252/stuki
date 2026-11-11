@@ -22,3 +22,9 @@ yarn-debug.log*
 yarn-error.log*
 .DS_Store
 Thumbs.db
+
+# Specs & Agent documentation
+specs/
+spec/
+.specify/
+.agents/
