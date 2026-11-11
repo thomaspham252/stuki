@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/navbar";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 import CartDrawer from "@/components/cart-drawer";
 
 const geistSans = Geist({
-  variable: "--font-font-sans",
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
@@ -15,9 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TSUKI | Contemporary Unisex Studio - Elevated Basics & Utility",
+  title: "ICONDENIM® | Thời Trang Nam Cao Cấp - Double Deal 11.11",
   description:
-    "Thương hiệu thời trang Unisex cao cấp. Thiết kế phom dáng Boxy, Wide-leg, chất liệu Heavyweight Cotton 240-300 GSM.",
+    "ICONDENIM - Thương hiệu thời trang nam hiện đại. Quần Jeans TechUrban, Đồ Thu Đông, Áo Thun, Quần Tây, Sportcation Collection.",
 };
 
 export default function RootLayout({
@@ -27,9 +28,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="vi" className="h-full antialiased scroll-smooth">
-      <body className="min-h-full flex flex-col bg-white text-zinc-900 dark:bg-black dark:text-zinc-100 font-sans">
-        <Navbar />
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} min-h-full flex flex-col bg-white text-zinc-900 font-sans`}
+      >
+        <Header />
         <main className="flex-1">{children}</main>
+        <Footer />
         <CartDrawer />
       </body>
     </html>
