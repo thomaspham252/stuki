@@ -46,7 +46,7 @@ export default function HeroSlider() {
   const slide = SLIDES[currentSlide];
 
   return (
-    <section className="relative w-full h-[520px] sm:h-[620px] lg:h-[700px] overflow-hidden bg-zinc-900">
+    <section className="relative w-full aspect-[2500/991] min-h-[360px] sm:min-h-[440px] md:min-h-0 overflow-hidden bg-zinc-900">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -54,6 +54,7 @@ export default function HeroSlider() {
           alt={slide.title}
           fill
           priority
+          sizes="100vw"
           className="object-cover object-center transition-all duration-700"
         />
         {/* Soft gradient overlay matching tennis court vibe */}
@@ -62,18 +63,18 @@ export default function HeroSlider() {
 
       {/* Hero Typography & Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center text-white">
-        <span className="text-xs sm:text-sm font-semibold tracking-[0.3em] uppercase drop-shadow-md">
+        <span className="text-[11px] sm:text-xs md:text-sm font-semibold tracking-[0.25em] sm:tracking-[0.3em] uppercase drop-shadow-md">
           {slide.subTitle}
         </span>
-        <h1 className="mt-2 text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight drop-shadow-lg font-serif">
+        <h1 className="mt-1 sm:mt-2 text-2xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black uppercase tracking-tight drop-shadow-lg font-serif leading-none">
           {slide.title}
         </h1>
-        <p className="mt-3 text-xs sm:text-base font-medium tracking-[0.2em] uppercase text-zinc-200 drop-shadow-sm">
+        <p className="mt-1.5 sm:mt-3 text-[11px] sm:text-sm md:text-base font-medium tracking-[0.15em] sm:tracking-[0.2em] uppercase text-zinc-200 drop-shadow-sm">
           {slide.tagline}
         </p>
         <a
           href={slide.link}
-          className="mt-6 inline-block rounded-xs bg-white px-8 py-3 text-xs font-bold uppercase tracking-widest text-zinc-950 transition-all hover:bg-[#0b2b68] hover:text-white shadow-xl"
+          className="mt-4 sm:mt-6 inline-block rounded-xs bg-white px-5 sm:px-8 py-2 sm:py-3 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-zinc-950 transition-all hover:bg-[#0b2b68] hover:text-white shadow-xl"
         >
           {slide.cta}
         </a>
@@ -111,3 +112,4 @@ export default function HeroSlider() {
     </section>
   );
 }
+

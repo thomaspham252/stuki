@@ -416,3 +416,4 @@ export const TROUSERS_PRODUCTS: ProductItem[] = [
     sizes: ["29", "30", "31", "32"],
   },
 ];
+
